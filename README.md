@@ -1,6 +1,5 @@
 # LLM-Powered Prompt Router for Intent Classification
 
-**Author**: shahanth4444 (shahanth@example.com)
 
 This Node.js service intelligently routes user requests to specialized AI personas by classifying the user's intent. It is designed to demonstrate key patterns in production AI systems, avoiding single monolithic prompts in favor of specialized expert system prompts.
 
