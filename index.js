@@ -107,6 +107,13 @@ async function processMessage(message) {
   const response = await route_and_respond(message, intentObj);
   console.log(`Response: ${response}`);
   log_request(intentObj, message, response);
+
+  // Verify logging
+  if (fs.existsSync(logPath)) {
+    console.log(`\nCreated log file successfully at: ${logPath}`);
+  } else {
+    console.log("\nWARNING: route_log.jsonl was not found!");
+  }
 }
 
 /**
@@ -147,5 +154,6 @@ if (require.main === module) {
 
 module.exports = {
   classify_intent,
-  route_and_respond
+  route_and_respond,
+  log_request
 };
