@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  prompt-router:
+    build: .
+    container_name: prompt-router
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    # Run the mock test by default if you want to see the demo output without an API key
+    # command: node test-mock.js

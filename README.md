@@ -43,23 +43,31 @@ graph TD
 
 ## Getting Started
 
+### Option 1: Using Node.js directly
 1. Ensure you have Node.js 18+ installed.
-2. Install the required dependencies:
+2. Open your terminal and **make sure you are in the correct folder**:
+   ```bash
+   cd "d:\USER ACTIVITY SERVICE\prompt-router"
+   ```
+3. Install dependencies:
    ```bash
    npm install
    ```
-3. Set your OpenAI API key. Create a `.env` file in the root directory (where `index.js` is) with the following content:
-   ```env
-   OPENAI_API_KEY=your_openai_api_key_here
-   ```
-4. Run the project tests:
+4. Run the test mock demo (no API key needed):
    ```bash
-   npm start
+   node test-mock.js
    ```
-   Or run it directly via node:
+
+### Option 2: Using Docker (Recommended)
+If you have Docker installed, you can run the mock test without installing Node.js directly:
+1. Open your terminal in the correct folder:
    ```bash
-   node index.js
+   cd "d:\USER ACTIVITY SERVICE\prompt-router"
+   ```
+2. Build and run the mock test container:
+   ```bash
+   docker-compose run --rm prompt-router node test-mock.js
    ```
 
 ## Included Tests
-The provided `index.js` includes a testing suite simulating 15 messages (including ambiguous commands, coding prompts, typos, and career advice). Running `npm start` will process all 15 sequentially and log them automatically to `route_log.jsonl`.
+The provided `index.js` includes a testing suite simulating 15 messages. If you add your OpenAI API Key to the `.env` file, running `npm start` (or `docker-compose up` if uncommented in config) will process all 15 sequentially and log them automatically to `route_log.jsonl`.
